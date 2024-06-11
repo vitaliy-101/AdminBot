@@ -9,8 +9,3 @@ class Request:
         query = "SELECT * FROM requests"
         return await self.connector.fetch(query)
 
-    async def add_data_requests(self, data, userId):
-        query = f"INSERT INTO requests (name, surname, email, phone, user_id) " \
-                f"VALUES('{data['forename']}', '{data['surname']}', " \
-                 f"'{data['email']}', '{data['phonenumber']}', {userId}) "
-        await self.connector.execute(query)
