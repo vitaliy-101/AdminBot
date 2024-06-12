@@ -2,7 +2,7 @@ import asyncio
 import asyncpg
 from aiogram import Bot, Dispatcher, Router
 from core.Settings import settings
-from core.handlers.basic import router
+from core.handlers import basic, volunteerHandlers, adminHandlers
 from core.middlewares.db import DbSession
 import logging
 
@@ -12,10 +12,9 @@ async def start():
     bot = Bot(token=settings.bots.bot_token)
     bot.parse_mode = 'HTML'
     try:
-        dp.include_router(router)
-        pool_connect = await asyncpg.create_pool(user='postgres', password='007787898',
-                                                 database='users_bd', port=5432, command_timeout=60)
-        dp.update.middleware.register(DbSession(pool_connect))
+        dp.include_router(basic.router)
+        dp.include_router(adminHandlers.router)
+        dp.include_router(volunteerHandlers.router)
         await dp.start_polling(bot)
     finally:
         await bot.session.close()
