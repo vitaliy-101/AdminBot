@@ -15,6 +15,9 @@ async def start():
         dp.include_router(basic.router)
         dp.include_router(adminHandlers.router)
         dp.include_router(volunteerHandlers.router)
+        pool_connect = await asyncpg.create_pool(user='postgres', password='IKfsvJGKGPofJfuUSOHyUaeXCNcATpYh',
+                                                 database='railway', host="monorail.proxy.rlwy.net", port=37016, command_timeout=60)
+        dp.update.middleware.register(DbSession(pool_connect))
         await dp.start_polling(bot)
     finally:
         await bot.session.close()

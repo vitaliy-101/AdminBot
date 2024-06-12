@@ -8,7 +8,7 @@ class CreatingAdminSteps(StatesGroup):
     GET_PHONE = State()
     GET_PHOTO = State()
     GET_PASSPORT = State()
-    GET_DISTRICT = State()
+    GET_POINT = State()
     DONE = State()
 
 

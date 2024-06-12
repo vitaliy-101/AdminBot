@@ -1,10 +1,10 @@
 from aiogram import Bot, F, Router
 from aiogram.types import Message
 from aiogram.filters import Command
-from AdminBot.core.utils.dbConnection import Request
-from AdminBot.core.keyboards.inline import getInlineStartKeyBoard, getInlineUserSettingsKeyboard
+from core.utils.dbConnection import Request
+from core.keyboards.inline import getInlineStartKeyBoard, getInlineUserSettingsKeyboard
 from aiogram.fsm.context import FSMContext
-from AdminBot.core.utils.stateForms import CreatingAdminSteps
+from core.utils.stateForms import CreatingAdminSteps
 from aiogram.types import CallbackQuery
 from asyncpg import Record
 

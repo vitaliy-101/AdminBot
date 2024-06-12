@@ -1,7 +1,7 @@
 from aiogram import Router, F
 from aiogram.types import Message, CallbackQuery
 from aiogram.fsm.context import FSMContext
-from AdminBot.core.utils.stateForms import CreatingVolunteerSteps
+from core.utils.stateForms import CreatingVolunteerSteps
 
 '''
 
